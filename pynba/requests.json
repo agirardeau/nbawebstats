@@ -90,15 +90,15 @@
             "default" : 5 },
         "IsOnlyCurrentSeason" : {
             "description" : "",
-            "type" : "str",
-            "default" : "0" },
+            "type" : "boolean-01",
+            "default" : "False" },
         "LastNGames" : {
             "description" : "",
             "type" : "int",
             "default" : 0 },
         "LeagueID" : {
             "description" : "",
-            "type" : "mapped-enum",
+            "type" : "enum-mapped",
             "default" : "NBA",
             "options" : {
                 "NBA" : "00",
@@ -218,7 +218,7 @@
             "default" : "False" },
         "RookieYear" : {
             "description" : "(Guess) Include only players with the given rookie year?",
-            "type" : "season",
+            "type" : "int-season",
             "default" : "" },
         "Scope" : {
             "description" : "",
@@ -231,10 +231,10 @@
             "default" : ""},
         "Season" : {
             "description" : "",
-            "type" : "season" },
+            "type" : "int-season" },
         "SeasonID" : {
             "description" : "For the user this is the same as Season, but pynba formats the request differently.",
-            "type" : "season-id" },
+            "type" : "int-season-id" },
         "SeasonSegment" : {
             "description" : "",
             "type" : "enum",
@@ -254,7 +254,7 @@
             "default" : "Regular Season" },
         "SeasonYear" : {
             "description" : "Same as Season.",
-            "type" : "season" },
+            "type" : "int-season" },
         "StartPeriod" : {
             "description" : "",
             "type" : "int",
