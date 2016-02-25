@@ -1,6 +1,5 @@
 import requests
 import json
-import dateutil.parser
 from os import path
 from abc import ABCMeta, abstractmethod
 
@@ -12,38 +11,65 @@ class WebInterface:
         with open(_REQUEST_DATA_PATH, 'r') as f:
             request_data = json.load(f)
 
-        self.param_types = {x: ParamType(x, y)
+        self._param_types = {x: _construct_param_type_from_json(x, y)
                 for x, y in request_data['params'].items()}
-        self.request_types = {x: RequestType(x, y, self.param_types)
+        self._request_types = {x: _RequestType(x, y, self._param_types)
                 for x, y in request_data['requests'].items()}
 
-    def request(request_name, params):
-        self.request_types[request_name].send(params)
+    def request(self, request_name, params={}):
+        self._request_types[request_name].send(params)
 
 class _RequestType:
-    #TODO
     def __init__(self, name, data, param_types):
-        pass
+        self.name = name
+        self.endpoint = data['endpoint']
+        self.params = [param_types[x] for x in data['params']]
+        self.response_format = data['response-format']
+        if self.response_format == 'result-set':
+            self.outputs = data['returns']
+        self.url_param = data.get('url-param')
 
     def send(self, params):
-        pass
+        params_composed = self._compose_params(params)
+        
+        url = 'http://stats.nba.com/{0}'.format(self.endpoint)
+        if self.url_param is not None:
+            url = url.format(params_composed[self.url_param])
 
-    def _label_result_sets(result_set_list):
-        pass
+        response = requests.get(url, params=params_composed)
 
-_PARAM_TYPE_NAME_MAP = {
-        'int': _IntParamType,
-        'season': _SeasonParamType,
-        'season-id': _SeasonIdParamType,
-        'boolean-yn': _BooleanYNParamType,
-        'boolean-01': _Boolean01ParamType,
-        'enum': _EnumParamType,
-        'enum-mapped': _MappedEnumParamType,
-        'date': _DateParamType
-}
+        print("URL: {0}".format(url))
+        print("Params: {0}".format(params_composed))
+        
+        #if self.response_format == 'result-set':
+        #    return self._label_result_sets(response['resultSets'])
+        #else:
+        #    return response
 
-def _construct_param_type_from_json(name, data):
-    return _PARAM_TYPE_NAME_MAP[data['type']](name, data)
+    def _compose_params(self, param_values_provided):
+        params_composed = {}
+        for param in self.params:
+            if param.name in param_values_provided:
+                value_provided = param_values_provided[param.name]
+                params_composed[param.name] = \
+                        param.format_value(value_provided)
+            else:
+                if param.has_default:
+                    params_composed[param.name] = param.default_formatted
+                else:
+                    raise ValueError("Request {0} is missing parameter {1}."
+                            .format(self.name, param.name))
+
+        return params_composed
+
+    def _label_result_sets(self, result_set_list):
+        results = {}
+        for output, index in zip(self.outputs, range(len(self.outputs))):
+            headers = result_set_list[index]['headers']
+            values = result_set_list[index]['rowSet']
+            results[output] = [dict(zip(headers, x)) for x in values]
+
+        return results
 
 class _ParamType(metaclass=ABCMeta):
     def __init__(self, name, data):
@@ -60,10 +86,13 @@ class _ParamType(metaclass=ABCMeta):
                 self.default_value = None
                 self.default_formatted = ""
 
+    @abstractmethod
     def _parse(self, text):
-        return text
+        """Parse argument value from string"""
 
+    @abstractmethod
     def format_value(self, value):
+        """Format argument value into string to be used in HTTP request"""
 
 class _IntParamType(_ParamType):
     def _parse(self, text):
@@ -85,7 +114,7 @@ class _SeasonIDParamType(_IntParamType):
             raise ValueError("Seasons should be four digit integers")
         return '2{0}'.format(value)
 
-class _BooleanParamType(_ParamType, metaclass=ABCMeta):
+class _BooleanParamType(_ParamType):
     def _parse(self, text):
         return {'True': True, 'False': False}[text]
 
@@ -99,8 +128,11 @@ class _Boolean01ParamType(_BooleanParamType):
 
 class _EnumParamType(_ParamType):
     def __init__(self, name, data):
-        super().__init__(self, name, data)
         self.options = data['options']
+        super().__init__(name, data)
+
+    def _parse(self, text):
+        return text
 
     def format_value(self, value):
         if value not in self.options:
@@ -120,7 +152,24 @@ class _MappedEnumParamType(_EnumParamType):
 
 class _DateParamType(_ParamType):
     def _parse(self, text):
-        return dateutil.parser.parse(text)
+        if not text:
+            return None
+        else:
+            raise NotImplementedError
 
     def format_value(self, value):
         return str(value)
+
+_PARAM_TYPE_NAME_MAP = {
+        'int': _IntParamType,
+        'int-season': _SeasonParamType,
+        'int-season-id': _SeasonIDParamType,
+        'boolean-yn': _BooleanYNParamType,
+        'boolean-01': _Boolean01ParamType,
+        'enum': _EnumParamType,
+        'enum-mapped': _MappedEnumParamType,
+        'date': _DateParamType,
+}
+
+def _construct_param_type_from_json(name, data):
+    return _PARAM_TYPE_NAME_MAP[data['type']](name, data)

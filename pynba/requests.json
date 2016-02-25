@@ -12,7 +12,7 @@
             "description" : "",
             "type" : "enum",
             "options" : [
-                ""
+                "",
                 "Last 5 Minutes",
                 "Last 4 Minutes",
                 "Last 3 Minutes",
@@ -20,7 +20,13 @@
                 "Last 1 Minute",
                 "Last 30 Seconds",
                 "Last 10 Seconds" ],
-            "default" : "" }
+            "default" : "" },
+        "ContextFilter" : {
+            "description" : "Honestly don't know what the format of this argument should be, but there's a request that requires it so it defaults to always empty.",
+            "type" : "enum",
+            "options" : [
+                "" ],
+            "default" : "" },
         "ContextMeasure" : {
             "description" : "",
             "type" : "enum",
@@ -107,7 +113,7 @@
             "default" : "NBA" },
         "Location" : {
             "description" : "",
-            "type" : "enum" },
+            "type" : "enum",
             "options" : [
                 "",
                 "Home",
@@ -206,8 +212,7 @@
                 "Guard",
                 "Center",
                 "Forward"],
-            "default" 
-            },
+            "default" : "" },
         "RangeType" : {
             "description" : "",
             "type" : "int",
@@ -278,7 +283,7 @@
                 "MIN",
                 "FGM",
                 "FGA",
-                "FG_PCT
+                "FG_PCT",
                 "FG3M",
                 "FG3A",
                 "FF3_PCT",
@@ -615,7 +620,7 @@
                 "coaches" ]},
         "team-history" : {
             "endpoint" : "feeds/teams/profile/{0}_TeamProfile.js",
-            "url-params" : "TeamID",
+            "url-param" : "TeamID",
             "params" : [
                 "TeamID" ],
             "response-format" : "json" },
@@ -964,7 +969,7 @@
         "league-transactions" : {
             "endpoint" : "feeds/NBAPlayerTransactions-559107/json.js",
             "params" : [],
-            "response-format" : "json" }
+            "response-format" : "json" },
         "league-franchise-history" : {
             "endpoint" : "stats/franchisehistory",
             "params" : [
@@ -1338,129 +1343,129 @@
                 "season" ]},
         "sportvu-catch-and-shoot" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/catchShootData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-team-catch-and-shoot" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/catchShootTeamData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-defense" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/defenseData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-team-defense" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/defenseTeamData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-drives" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/drivesData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-team-drives" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/drivesTeamData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-passing" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/passingData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-team-passing" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/passingTeamData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-touches" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/touchesData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-team-touches" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/touchesTeamData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-pull-up-shooting" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/pullUpShootData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-team-pull-up-shooting" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/pullUpShootTeamData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-rebounding" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/reboundingData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-team-rebounding" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/reboundingTeamData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-shooting" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/shootingData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-team-shooting" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/shootingTeamData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-speed" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/speedData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
                 "data" ]},
         "sportvu-team-speed" : {
             "endpoint" : "js/data/playtype/sportvu/{0}/speedTeamData.js",
-            "url-params" : [ "Year" ],
+            "url-param" : "Year",
             "params" : [ "Year" ],
             "response-format" : "result-set",
             "returns" : [
-                "data" ]},
+                "data" ]}
     }
 }
