@@ -964,7 +964,7 @@
                 "western-conference-standings",
                 "available",
                 "team-leaders",
-                "-ticket-links",
+                "ticket-links",
                 "win-probability" ]},
         "league-transactions" : {
             "endpoint" : "feeds/NBAPlayerTransactions-559107/json.js",
