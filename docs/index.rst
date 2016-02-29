@@ -1,5 +1,5 @@
-Welcome to PyNBA's documentation!
-======================================
+PyNBA Documentation
+===================
 
 Contents:
 
@@ -9,11 +9,5 @@ Contents:
    readme
    installation
    usage
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
-
+   api
+   requests
