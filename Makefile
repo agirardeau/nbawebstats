@@ -61,9 +61,6 @@ coverage:
 	$(BROWSER) htmlcov/index.html
 
 docs:
-	rm -f docs/pynba.rst
-	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ pynba
 	$(MAKE) -C docs clean
 	$(MAKE) -C docs html
 
