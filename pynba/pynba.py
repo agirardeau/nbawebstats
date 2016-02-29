@@ -17,7 +17,7 @@ class WebInterface:
                 for x, y in request_data['requests'].items()}
 
     def request(self, request_name, params={}):
-        self._request_types[request_name].send(params)
+        return self._request_types[request_name].send(params)
 
 class _RequestType:
     def __init__(self, name, data, param_types):
@@ -38,13 +38,10 @@ class _RequestType:
 
         response = requests.get(url, params=params_composed)
 
-        print("URL: {0}".format(url))
-        print("Params: {0}".format(params_composed))
-        
-        #if self.response_format == 'result-set':
-        #    return self._label_result_sets(response['resultSets'])
-        #else:
-        #    return response
+        if self.response_format == 'result-set':
+            return self._label_result_sets(response.json()['resultSets'])
+        else:
+            return response.json()
 
     def _compose_params(self, param_values_provided):
         params_composed = {}
