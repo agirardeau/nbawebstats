@@ -6,9 +6,9 @@ Installation
 
 At the command line::
 
-    $ easy_install pynba
+    $ pip install --user pynba
 
-Or, if you have virtualenvwrapper installed::
+Or, with virtualenvwrapper installed::
 
     $ mkvirtualenv pynba
     $ pip install pynba
