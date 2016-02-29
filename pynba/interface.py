@@ -1,3 +1,5 @@
+"""Module containing funcitonality for interfacing with the
+stats.nba.com HTTP interface."""
 import requests
 import json
 from os import path
@@ -7,7 +9,12 @@ from abc import ABCMeta, abstractmethod
 _REQUEST_DATA_PATH = path.join(path.dirname(path.abspath(__file__)), "requests.json")
 
 class WebInterface:
+    """Class used to construct and send HTTP requests to
+    stats.nba.com."""
+
     def __init__(self):
+        """Class contructor. Takes no arguments. Will load request and
+        parameter metadata."""
         with open(_REQUEST_DATA_PATH, 'r') as f:
             request_data = json.load(f)
 
@@ -17,9 +24,25 @@ class WebInterface:
                 for x, y in request_data['requests'].items()}
 
     def request(self, request_name, params={}):
+        """Send an HTTP request to stats.nba.com.
+
+        Args:
+            request_name (str): Identifier to the request type.
+            params (dict): Dictionary of paramters to the request.
+                Any parameters not provided in this argument will be set
+                to default vaues. Some paramters do not have default
+                values; all of these must be provided. See the
+                documantation for individual request types for which
+                parameters they accept.
+
+        Returns:
+            dict: Dictionary containing fields specific to the
+                request type.
+        """
         return self._request_types[request_name].send(params)
 
 class _RequestType:
+
     def __init__(self, name, data, param_types):
         self.name = name
         self.endpoint = data['endpoint']
