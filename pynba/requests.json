@@ -223,7 +223,7 @@
             "default" : "False" },
         "RookieYear" : {
             "description" : "(Guess) Include only players with the given rookie year?",
-            "type" : "int-season",
+            "type" : "season",
             "default" : "" },
         "Scope" : {
             "description" : "",
@@ -236,10 +236,10 @@
             "default" : ""},
         "Season" : {
             "description" : "",
-            "type" : "int-season" },
+            "type" : "season" },
         "SeasonID" : {
-            "description" : "For the user this is the same as Season, but pynba formats the request differently.",
-            "type" : "int-season-id" },
+            "description" : "From the perspective of the user this is the same as Season, though it is handled differently internally.",
+            "type" : "season-id" },
         "SeasonSegment" : {
             "description" : "",
             "type" : "enum",
@@ -259,7 +259,7 @@
             "default" : "Regular Season" },
         "SeasonYear" : {
             "description" : "Same as Season.",
-            "type" : "int-season" },
+            "type" : "season" },
         "StartPeriod" : {
             "description" : "",
             "type" : "int",
@@ -327,8 +327,10 @@
         "Year" : {
             "description" : "",
             "type" : "int" }},
+
     "requests" : {
         "all-players" : {
+            "description" : "",
             "endpoint" : "stats/commonallplayers",
             "params" : [
                 "IsOnlyCurrentSeason",
@@ -338,6 +340,7 @@
             "returns" : [
                 "list" ]},
         "player-demographics" : {
+            "description" : "",
             "endpoint" : "stats/commonplayerinfo",
             "params" : [
                 "PlayerID" ],
@@ -346,6 +349,7 @@
                 "player-info",
                 "headline-stats" ]},
         "player-career-stats" : {
+            "description" : "",
             "endpoint" : "stats/playerprofilev2",
             "params" : [
                 "PlayerID",
@@ -367,6 +371,7 @@
                 "career-high",
                 "next-game" ]},
         "player-general-splits" : {
+            "description" : "",
             "endpoint" : "stats/playerdashboardbygeneralsplits",
             "params" : [
                 "PlayerID",
@@ -400,6 +405,7 @@
                 "starting-position",
                 "days-rest" ]},
         "player-game-logs" : {
+            "description" : "",
             "endpoint" : "stats/playergamelog",
             "params" : [
                 "PlayerID",
@@ -409,6 +415,7 @@
             "returns" : [
                 "logs" ]},
         "player-shot-dashboard" : {
+            "description" : "",
             "endpoint" : "stats/playerdashptshots",
             "params" : [
                 "PlayerID",
@@ -439,6 +446,7 @@
                 "closest-defender-10ft",
                 "touch-time" ]},
         "player-rebound-dashboard" : {
+            "description" : "",
             "endpoint" : "stats/playerdashptreb",
             "params" : [
                 "PlayerID",
@@ -467,6 +475,7 @@
                 "shot-distance",
                 "rebound-distance" ]},
         "player-passing-dashboard" : {
+            "description" : "",
             "endpoint" : "stats/playerdashptpass",
             "params" : [
                 "PlayerID",
@@ -492,6 +501,7 @@
                 "passes-made",
                 "passes-received" ]},
         "player-defense-dashboard" : {
+            "description" : "",
             "endpoint" : "stats/playerdashptreb",
             "params" : [
                 "PlayerID",
@@ -516,6 +526,7 @@
             "returns" : [
                 "defending-shot" ]},
         "player-shot-log" : {
+            "description" : "",
             "endpoint" : "stats/playerdashptshotlog",
             "params" : [
                 "PlayerID",
@@ -539,6 +550,7 @@
             "returns" : [
                 "log" ]},
         "player-rebound-log" : {
+            "description" : "",
             "endpoint" : "stats/playerdashptreboundlogs",
             "params" : [
                 "PlayerID",
@@ -562,6 +574,7 @@
             "returns" : [
                 "log" ]},
         "player-shot-chart" : {
+            "description" : "",
             "endpoint" : "stats/shotchartdetail",
             "params" : [
                 "LeagueID",
@@ -598,6 +611,7 @@
                 "chart",
                 "leagueaverage" ]},
         "team-info" : {
+            "description" : "",
             "endpoint" : "stats/teaminfocommon",
             "params" : [
                 "TeamID",
@@ -609,6 +623,7 @@
                 "info",
                 "season-ranks" ]},
         "team-roster" : {
+            "description" : "",
             "endpoint" : "stats/commonteamroster",
             "params" : [
                 "TeamID",
@@ -619,12 +634,14 @@
                 "players",
                 "coaches" ]},
         "team-history" : {
+            "description" : "",
             "endpoint" : "feeds/teams/profile/{0}_TeamProfile.js",
             "url-param" : "TeamID",
             "params" : [
                 "TeamID" ],
             "response-format" : "json" },
         "team-splits" : {
+            "description" : "",
             "endpoint" : "stats/teamdashboardbygeneralsplits",
             "params" : [
                 "TeamID",
@@ -656,6 +673,7 @@
                 "pre-post-allstar",
                 "days-rest" ]},
         "team-season-stats" : {
+            "description" : "",
             "endpoint" : "stats/teamplayerdashboard",
             "params" : [
                 "TeamID",
@@ -684,6 +702,7 @@
                 "overall",
                 "player-totals" ]},
         "team-on-off-court" : {
+            "description" : "",
             "endpoint" : "stats/teamplayeronoffdetails",
             "params" : [
                 "TeamID",
@@ -716,6 +735,7 @@
                 "on-court-summary",
                 "off-court-summary" ]},
         "team-game-logs" : {
+            "description" : "",
             "endpoint" : "stats/teamgamelog",
             "params" : [
                 "TeamID",
@@ -725,6 +745,7 @@
             "returns" : [
                 "logs" ]},
         "team-lineups" : {
+            "description" : "",
             "endpoint" : "stats/teamdashlineups",
             "params" : [
                 "TeamID",
@@ -753,6 +774,7 @@
                 "overall",
                 "lineups" ]},
         "team-shooting-splits" : {
+            "description" : "",
             "endpoint" : "stats/teamdashboardbyshootingsplits",
             "params" : [
                 "TeamID",
@@ -786,6 +808,7 @@
                 "shot-type",
                 "assisted-by" ]},
         "team-rebounding" : {
+            "description" : "",
             "endpoint" : "stats/teamdashptreb",
             "params" : [
                 "TeamID",
@@ -813,6 +836,7 @@
                 "shot-distance", 
                 "rebound-distance" ]},
         "team-shooting" : {
+            "description" : "",
             "endpoint" : "stats/teamdashptshots",
             "params" : [
                 "TeamID",
@@ -841,6 +865,7 @@
                 "closest-defender-10ft",
                 "touch-time" ]},
         "game-play-by-play" : {
+            "description" : "",
             "endpoint" : "stats/playbyplayv2",
             "params" : [
                 "EndPeriod",
@@ -851,6 +876,7 @@
                 "plays",
                 "-available-video" ]},
         "game-boxscore-summary" : {
+            "description" : "",
             "endpoint" : "stats/boxscoresummaryv2",
             "params" : [
                 "GameID" ],
@@ -866,6 +892,7 @@
                 "season-series",
                 "-available-video" ]},
         "game-boxscore-traditional" : {
+            "description" : "",
             "endpoint" : "stats/boxscoretraditionalv2",
             "params" : [
                 "EndPeriod",
@@ -879,6 +906,7 @@
                 "player-stats",
                 "team-stats" ]},
         "game-boxscore-advanced" : {
+            "description" : "",
             "endpoint" : "stats/boxscoreadvancedv2",
             "params" : [
                 "EndPeriod",
@@ -892,6 +920,7 @@
                 "player-stats",
                 "team-stats" ]},
         "game-boxscore-misc" : {
+            "description" : "",
             "endpoint" : "stats/boxscoremiscv2",
             "params" : [
                 "EndPeriod",
@@ -905,6 +934,7 @@
                 "player-stats",
                 "team-stats" ]},
         "game-boxscore-scoring" : {
+            "description" : "",
             "endpoint" : "stats/boxscorescoringv2",
             "params" : [
                 "EndPeriod",
@@ -918,6 +948,7 @@
                 "player-stats",
                 "team-stats" ]},
         "game-boxscore-fourfactors" : {
+            "description" : "",
             "endpoint" : "stats/boxscorefourfactorsv2",
             "params" : [
                 "EndPeriod",
@@ -931,6 +962,7 @@
                 "player-stats",
                 "team-stats" ]},
         "game-boxscore-usage" : {
+            "description" : "",
             "endpoint" : "stats/boxscoreusagev2",
             "params" : [
                 "EndPeriod",
@@ -944,6 +976,7 @@
                 "player-stats",
                 "team-stats" ]},
         "game-boxscore-tracking" : {
+            "description" : "",
             "endpoint" : "stats/boxscoreplayertrackv2",
             "params" : [
                 "GameID" ],
@@ -952,6 +985,7 @@
                 "player-stats",
                 "team-stats" ]},
         "league-daily-scoreboard" : {
+            "description" : "",
             "endpoint" : "stats/scoreboardV2",
             "params" : [],
             "response-format" : "result-set",
@@ -967,10 +1001,12 @@
                 "ticket-links",
                 "win-probability" ]},
         "league-transactions" : {
+            "description" : "",
             "endpoint" : "feeds/NBAPlayerTransactions-559107/json.js",
             "params" : [],
             "response-format" : "json" },
         "league-franchise-history" : {
+            "description" : "",
             "endpoint" : "stats/franchisehistory",
             "params" : [
                 "LeagueID" ],
@@ -979,6 +1015,7 @@
                 "current-teams",
                 "defunct-teams" ]},
         "league-playoff-picture" : {
+            "description" : "",
             "endpoint" : "stats/playoffpicture",
             "params" : [
                 "LeagueID",
@@ -992,6 +1029,7 @@
                 "eastern-conf-remaining-games",
                 "western-conf-remaining-games" ]},
         "league-leaders" : {
+            "description" : "",
             "endpoint" : "stats/leagueleaders",
             "params" : [
                 "LeagueID",
@@ -1004,6 +1042,7 @@
             "returns" : [
                 "leaders" ]},
         "league-classic-stats" : {
+            "description" : "",
             "endpoint" : "stats/leaguedashteamstats",
             "params" : [
                 "DateFrom",
@@ -1034,6 +1073,7 @@
             "returns" : [
                 "stats" ]},
         "league-clutch-stats" : {
+            "description" : "",
             "endpoint" : "stats/leaguedashteamclutch",
             "params" : [
                 "AheadBehind",
@@ -1067,6 +1107,7 @@
             "returns" : [
                 "clutch" ]},
         "league-lineups" : {
+            "description" : "",
             "endpoint" : "stats/leaguedashlineups",
             "params" : [
                 "DateFrom",
@@ -1095,6 +1136,7 @@
             "returns" : [
                 "lineups" ]},
         "league-team-shot-locations" : {
+            "description" : "",
             "endpoint" : "stats/leaguedashteamshotlocations",
             "params" : [
                 "DateFrom",
@@ -1126,6 +1168,7 @@
             "returns" : [
                 "shooting" ]},
         "draft-combine-all-stats" : {
+            "description" : "",
             "endpoint" : "stats/draftcombinedrillresults",
             "params" : [
                 "LeagueID",
@@ -1134,6 +1177,7 @@
             "returns" : [
                 "data" ]},
         "draft-anthro" : {
+            "description" : "",
             "endpoint" : "stats/draftcombineplayeranthro",
             "params" : [
                 "LeagueID",
@@ -1142,6 +1186,7 @@
             "returns" : [
                 "data" ]},
         "draft-agility" : {
+            "description" : "",
             "endpoint" : "stats/draftcombinedrillresults",
             "params" : [
                 "LeagueID",
@@ -1150,6 +1195,7 @@
             "returns" : [
                 "data" ]},
         "draft-non-stationary-shooting" : {
+            "description" : "",
             "endpoint" : "stats/draftcombinenonstationaryshooting",
             "params" : [
                 "LeagueID",
@@ -1158,6 +1204,7 @@
             "returns" : [
                 "data" ]},
         "draft-spot-shooting" : {
+            "description" : "",
             "endpoint" : "stats/draftcombinespotshooting",
             "params" : [
                 "LeagueID",
@@ -1166,6 +1213,7 @@
             "returns" : [
                 "data" ]},
         "playtype-player-transition" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_Transition.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1174,6 +1222,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-transition" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_Transition.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1182,6 +1231,7 @@
                 "defensive",
                 "season" ]},
         "playtype-player-isolation" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_Isolation.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1190,6 +1240,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-isolation" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_Isolation.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1198,6 +1249,7 @@
                 "defensive",
                 "season" ]},
         "playtype-player-pr-ball-handler" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_PRBallHandler.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1206,6 +1258,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-pr-ball-handler" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_PRBallHandler.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1214,6 +1267,7 @@
                 "defensive",
                 "season" ]},
         "playtype-player-pr-roll-man" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_PRRollMan.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1222,6 +1276,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-pr-roll-man" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_PRRollMan.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1230,6 +1285,7 @@
                 "defensive",
                 "season" ]},
         "playtype-player-postup" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_Postup.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1238,6 +1294,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-postup" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_Postup.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1246,6 +1303,7 @@
                 "defensive",
                 "season" ]},
         "playtype-player-spotup" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_Postup.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1254,6 +1312,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-spotup" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_Postup.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1262,6 +1321,7 @@
                 "defensive",
                 "season" ]},
         "playtype-player-handoff" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_Handoff.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1270,6 +1330,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-handoff" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_Handoff.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1278,6 +1339,7 @@
                 "defensive",
                 "season" ]},
         "playtype-player-cut" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_Cut.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1286,6 +1348,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-cut" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_Cut.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1294,6 +1357,7 @@
                 "defensive",
                 "season" ]},
         "playtype-player-offscreen" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_OffScreen.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1302,6 +1366,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-offscreen" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_OffScreen.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1310,6 +1375,7 @@
                 "defensive",
                 "season" ]},
         "playtype-player-offrebound" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_OffRebound.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1318,6 +1384,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-offrebound" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_OffRebound.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1326,6 +1393,7 @@
                 "defensive",
                 "season" ]},
         "playtype-player-misc" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/player_Misc.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1334,6 +1402,7 @@
                 "defensive",
                 "season" ]},
         "playtype-team-misc" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/team_Misc.js",
             "params" : [],
             "response-format" : "result-set",
@@ -1342,6 +1411,7 @@
                 "defensive",
                 "season" ]},
         "sportvu-catch-and-shoot" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/catchShootData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1349,6 +1419,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-team-catch-and-shoot" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/catchShootTeamData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1356,6 +1427,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-defense" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/defenseData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1363,6 +1435,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-team-defense" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/defenseTeamData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1370,6 +1443,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-drives" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/drivesData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1377,6 +1451,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-team-drives" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/drivesTeamData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1384,6 +1459,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-passing" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/passingData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1391,6 +1467,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-team-passing" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/passingTeamData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1398,6 +1475,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-touches" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/touchesData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1405,6 +1483,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-team-touches" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/touchesTeamData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1412,6 +1491,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-pull-up-shooting" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/pullUpShootData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1419,6 +1499,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-team-pull-up-shooting" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/pullUpShootTeamData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1426,6 +1507,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-rebounding" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/reboundingData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1433,6 +1515,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-team-rebounding" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/reboundingTeamData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1440,6 +1523,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-shooting" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/shootingData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1447,6 +1531,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-team-shooting" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/shootingTeamData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1454,6 +1539,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-speed" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/speedData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],
@@ -1461,6 +1547,7 @@
             "returns" : [
                 "data" ]},
         "sportvu-team-speed" : {
+            "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/speedTeamData.js",
             "url-param" : "Year",
             "params" : [ "Year" ],

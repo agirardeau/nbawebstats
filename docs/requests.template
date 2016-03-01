@@ -1,0 +1,88 @@
+====================
+Request Reference
+====================
+
+********
+Requests
+********
+
+**********
+Parameters
+**********
+{% for param_name, param in params.items()|sort %}
+
+.. _param-{{ param_name.lower() }}:
+
+{{ param_name }}
+---------------------
+{% if 'description' in param -%}
+    {{ param.description|wordwrap(break_long_words=False) }}
+{% endif %}
+
+:Type:
+    {% if param.type in ['int'] %}
+    :ref:`Integer <type-integer>`
+    {% elif param.type in ['boolean-yn', 'boolean-01'] %}
+    :ref:`Boolean <type-boolean>`
+    {% elif param.type in ['enum', 'enum-mapped'] %}
+    :ref:`Enumerated <type-enumerated>`
+    {% elif param.type in ['date'] %}
+    :ref:`Date <type-date>`
+    {% elif param.type in ['season', 'season-id'] %}
+    :ref:`Season <type-season>`
+    {% endif %}
+
+{% if param.type in ['enum', 'enum-mapped'] %}
+:Options: ``"{{ param.options|join("\"``, ``\"") }}"``
+
+{% endif %}
+{% if 'default' in param %}
+:Default: ``"{{ param.default }}"``
+{% endif %}
+{% endfor %}
+
+***************
+Parameter Types
+***************
+
+.. _type-integer:
+
+Integer
+-------
+
+Parameters of type Integer accept standard Python integers.
+
+.. _type-boolean:
+
+Boolean
+-------
+
+Parameters of type Enumerated accept standard Python boolean values ``True`` and
+``False``.
+
+.. _type-enumerated:
+
+Enumerated
+----------
+
+Parameters of type Enumerated accept Python strings. Each parameter has a set
+of string values that it allows as options, see documentation for the
+particular parameter to see what those values are. Some enumerated parameters
+allow empty strings; semantically this indicates that the parameter is left
+unspecified.
+
+.. _type-date:
+
+Date
+----
+
+Parameters of type Date accept Python ``datetime.date`` objects.
+
+.. _type-season:
+
+Season
+------
+
+Parameters of type Season accept four digit integers (i.e., integers between
+1000 and 9999). Values should correspond to the year that a season begins; for
+example, the value 2008 indicates the 2008-2009 NBA season.
