@@ -238,7 +238,7 @@
             "description" : "",
             "type" : "season" },
         "SeasonID" : {
-            "description" : "From the perspective of the user this is the same as Season, though it is handled differently internally.",
+            "description" : "From the perspective of the user this is the same as :ref:`Season <param-season>`, though it is handled differently internally.",
             "type" : "season-id" },
         "SeasonSegment" : {
             "description" : "",
@@ -258,7 +258,7 @@
                 "Pre Season" ],
             "default" : "Regular Season" },
         "SeasonYear" : {
-            "description" : "Same as Season.",
+            "description" : "Same as :ref:`Season <param-season>`.",
             "type" : "season" },
         "StartPeriod" : {
             "description" : "",

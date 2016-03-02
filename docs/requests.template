@@ -5,6 +5,25 @@ Request Reference
 ********
 Requests
 ********
+{% for request_name, request in requests.items()|sort %}
+
+.. _request-{{ request_name.lower() }}:
+
+{{ request_name }}
+-------------------------------
+{% if 'description' in request -%}
+    {{ request.description|wordwrap(break_long_words=False) }}
+{% endif %}
+
+:Required Parameters: {{ request.params|without_default(params)|sort|format_param_links|join(", ") }}
+
+:Optional Parameters: {{ request.params|with_default(params)|sort|format_param_links|join(", ") }}
+
+{% if request['response-format'] == 'result-set' %}
+:Return Fields: {{ request.returns|format_string_literals|join(", ") }}
+{% endif %}
+    
+{% endfor %}
 
 **********
 Parameters
@@ -19,21 +38,10 @@ Parameters
     {{ param.description|wordwrap(break_long_words=False) }}
 {% endif %}
 
-:Type:
-    {% if param.type in ['int'] %}
-    :ref:`Integer <type-integer>`
-    {% elif param.type in ['boolean-yn', 'boolean-01'] %}
-    :ref:`Boolean <type-boolean>`
-    {% elif param.type in ['enum', 'enum-mapped'] %}
-    :ref:`Enumerated <type-enumerated>`
-    {% elif param.type in ['date'] %}
-    :ref:`Date <type-date>`
-    {% elif param.type in ['season', 'season-id'] %}
-    :ref:`Season <type-season>`
-    {% endif %}
+:Type: {{ param.type|format_param_type_link }}
 
 {% if param.type in ['enum', 'enum-mapped'] %}
-:Options: ``"{{ param.options|join("\"``, ``\"") }}"``
+:Options: {{ param.options|format_string_literals|join(", ") }}
 
 {% endif %}
 {% if 'default' in param %}

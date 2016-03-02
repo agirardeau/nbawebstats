@@ -98,7 +98,6 @@ class _RequestType:
 class _ParamType(metaclass=ABCMeta):
     def __init__(self, name, data):
         self.name = name
-        self.description = data.get('description', '')
 
         self.default_string = data.get('default')
         self.has_default = (self.default_string is not None)
