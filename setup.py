@@ -8,7 +8,8 @@ except ImportError:
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
-requirements = []
+requirements = [
+        "requests" ]
 
 test_requirements = []
 
