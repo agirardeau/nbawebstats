@@ -371,7 +371,7 @@
                 "career-high",
                 "next-game" ]},
         "player-general-splits" : {
-            "description" : "",
+            "description" : ".. warning:: This data may no longer be offered by nba.com.",
             "endpoint" : "stats/playerdashboardbygeneralsplits",
             "params" : [
                 "PlayerID",
@@ -526,7 +526,7 @@
             "returns" : [
                 "defending-shot" ]},
         "player-shot-log" : {
-            "description" : "",
+            "description" : ".. warning:: This data may no longer be offered by nba.com.",
             "endpoint" : "stats/playerdashptshotlog",
             "params" : [
                 "PlayerID",
@@ -550,7 +550,7 @@
             "returns" : [
                 "log" ]},
         "player-rebound-log" : {
-            "description" : "",
+            "description" : ".. warning:: This data may no longer be offered by nba.com.",
             "endpoint" : "stats/playerdashptreboundlogs",
             "params" : [
                 "PlayerID",
