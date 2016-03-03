@@ -15,7 +15,7 @@ test_requirements = []
 
 setup(
     name='pynba',
-    version='0.0.2',
+    version='0.0.3',
     description="Python interface to stats.nba.com HTTP API.",
     long_description=readme,
     author="Andrew Girardeau-Dale",
