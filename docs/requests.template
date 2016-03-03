@@ -12,7 +12,7 @@ Requests
 {{ request_name }}
 -------------------------------
 {% if 'description' in request -%}
-    {{ request.description|wordwrap(break_long_words=False) }}
+    {{ request.description }}
 {% endif %}
 
 :Required Parameters: {{ request.params|without_default(params)|sort|format_param_links|join(", ") }}
@@ -35,7 +35,7 @@ Parameters
 {{ param_name }}
 ---------------------
 {% if 'description' in param -%}
-    {{ param.description|wordwrap(break_long_words=False) }}
+    {{ param.description }}
 {% endif %}
 
 :Type: {{ param.type|format_param_type_link }}
