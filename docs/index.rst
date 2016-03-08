@@ -1,5 +1,5 @@
 NBAWebStats Documentation
-===================
+=========================
 
 Contents:
 
