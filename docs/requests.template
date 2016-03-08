@@ -45,7 +45,8 @@ Parameters
 
 {% endif %}
 {% if 'default' in param %}
-:Default: ``"{{ param.default }}"``
+:Default: {% if param.default %}``{{ param.default }}``{% else %}``''``{% endif %}
+
 {% endif %}
 {% endfor %}
 

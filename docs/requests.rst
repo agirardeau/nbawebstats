@@ -1135,7 +1135,7 @@ AheadBehind
 
 :Options: ``'Ahead or Behind'``, ``'Behind or Tied'``, ``'Ahead or Tied'``
 
-:Default: ``"Ahead or Behind"``
+:Default: ``Ahead or Behind``
 
 .. _param-clutchtime:
 
@@ -1171,7 +1171,7 @@ ContextMeasure
 
 :Options: ``'FGM'``, ``'FGA'``, ``'PG_PCT'``, ``'FG3M'``, ``'FG3A'``, ``'FG3_PCT'``, ``'PF'``, ``'EFG_PCT'``, ``'TS_PCT'``, ``'PTS_FB'``, ``'PTS_OFF_TOV'``, ``'PTS_2ND_CHANCE'``, ``'PF'``
 
-:Default: ``"FGM"``
+:Default: ``FGM``
 
 .. _param-datefrom:
 
@@ -1213,7 +1213,7 @@ EndPeriod
 
 :Type: :ref:`Integer <type-integer>`
 
-:Default: ``"10"``
+:Default: ``10``
 
 .. _param-endrange:
 
@@ -1223,7 +1223,7 @@ EndRange
 
 :Type: :ref:`Integer <type-integer>`
 
-:Default: ``"28800"``
+:Default: ``28800``
 
 .. _param-gameid:
 
@@ -1266,7 +1266,7 @@ GroupQuantity
 
 :Type: :ref:`Integer <type-integer>`
 
-:Default: ``"5"``
+:Default: ``5``
 
 .. _param-isonlycurrentseason:
 
@@ -1276,7 +1276,7 @@ IsOnlyCurrentSeason
 
 :Type: :ref:`Boolean <type-boolean>`
 
-:Default: ``"False"``
+:Default: ``False``
 
 .. _param-lastngames:
 
@@ -1286,7 +1286,7 @@ LastNGames
 
 :Type: :ref:`Integer <type-integer>`
 
-:Default: ``"0"``
+:Default: ``""``
 
 .. _param-leagueid:
 
@@ -1296,9 +1296,9 @@ LeagueID
 
 :Type: :ref:`Enumerated <type-enumerated>`
 
-:Options: ``'NBA'``, ``'NBADL'``, ``'WNBA'``
+:Options: ``'WNBA'``, ``'NBADL'``, ``'NBA'``
 
-:Default: ``"NBA"``
+:Default: ``NBA``
 
 .. _param-location:
 
@@ -1322,7 +1322,7 @@ MeasureType
 
 :Options: ``'Base'``, ``'Advanced'``, ``'Misc'``, ``'Four Factors'``, ``'Scoring'``, ``'Opponent'``, ``'Usage'``
 
-:Default: ``"Base"``
+:Default: ``Base``
 
 .. _param-month:
 
@@ -1332,7 +1332,7 @@ Month
 
 :Type: :ref:`Integer <type-integer>`
 
-:Default: ``"0"``
+:Default: ``""``
 
 .. _param-opponentteamid:
 
@@ -1342,7 +1342,7 @@ OpponentTeamID
 
 :Type: :ref:`Integer <type-integer>`
 
-:Default: ``"0"``
+:Default: ``""``
 
 .. _param-outcome:
 
@@ -1364,7 +1364,7 @@ PaceAdjust
 
 :Type: :ref:`Boolean <type-boolean>`
 
-:Default: ``"False"``
+:Default: ``False``
 
 .. _param-permode:
 
@@ -1376,7 +1376,7 @@ Whether returned stats should be given as totals, per game, per 36 minutes, etc.
 
 :Options: ``'Totals'``, ``'PerGame'``, ``'MinutesPer'``, ``'Per48'``, ``'Per40'``, ``'Per36'``, ``'PerMinute'``, ``'PerPossession'``, ``'PerPlay'``, ``'Per100Possessions'``, ``'Per100Plays'``
 
-:Default: ``"Totals"``
+:Default: ``Totals``
 
 .. _param-period:
 
@@ -1386,7 +1386,7 @@ Period
 
 :Type: :ref:`Integer <type-integer>`
 
-:Default: ``"0"``
+:Default: ``""``
 
 .. _param-playerexperience:
 
@@ -1429,7 +1429,7 @@ PlusMinus
 
 :Type: :ref:`Boolean <type-boolean>`
 
-:Default: ``"False"``
+:Default: ``False``
 
 .. _param-pointdiff:
 
@@ -1461,7 +1461,7 @@ RangeType
 
 :Type: :ref:`Integer <type-integer>`
 
-:Default: ``"2"``
+:Default: ``2``
 
 .. _param-rank:
 
@@ -1471,7 +1471,7 @@ Rank
 
 :Type: :ref:`Boolean <type-boolean>`
 
-:Default: ``"False"``
+:Default: ``False``
 
 .. _param-rookieyear:
 
@@ -1535,7 +1535,7 @@ Some requests may not support pre-season.
 
 :Options: ``'Regular Season'``, ``'Playoffs'``, ``'All Star'``, ``'Pre Season'``
 
-:Default: ``"Regular Season"``
+:Default: ``Regular Season``
 
 .. _param-seasonyear:
 
@@ -1554,7 +1554,7 @@ StartPeriod
 
 :Type: :ref:`Integer <type-integer>`
 
-:Default: ``"1"``
+:Default: ``1``
 
 .. _param-startrange:
 
@@ -1564,7 +1564,7 @@ StartRange
 
 :Type: :ref:`Integer <type-integer>`
 
-:Default: ``"0"``
+:Default: ``""``
 
 .. _param-starterbench:
 
