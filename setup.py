@@ -16,25 +16,25 @@ test_requirements = []
 version='0.0.3'
 
 setup(
-    name='pynba',
+    name='nbawebstats',
     version=version,
     description="Python interface to stats.nba.com HTTP API.",
     long_description=readme,
     author="Andrew Girardeau-Dale",
     author_email='agirardeaudale@gmail.com',
-    url='https://github.com/agirardeaudale/pynba',
-    download_url=('https://github.com/agirardeaudale/pynba/tarball/v{0}'
+    url='https://github.com/agirardeaudale/nbawebstats',
+    download_url=('https://github.com/agirardeaudale/nbawebstats/tarball/v{0}'
                   .format(version)),
     packages=[
-        'pynba',
+        'nbawebstats',
     ],
-    package_dir={'pynba':
-                 'pynba'},
+    package_dir={'nbawebstats':
+                 'nbawebstats'},
     include_package_data=True,
     install_requires=requirements,
     license="MIT",
     zip_safe=False,
-    keywords='pynba',
+    keywords='nbawebstats',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
         'Intended Audience :: Developers',

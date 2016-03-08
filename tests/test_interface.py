@@ -3,7 +3,7 @@
 import unittest
 
 
-class TestPynba(unittest.TestCase):
+class TestInterface(unittest.TestCase):
     def test_something(self):
         pass
 

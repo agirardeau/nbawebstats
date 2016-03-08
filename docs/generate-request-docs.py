@@ -5,7 +5,7 @@ import json
 import os
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.abspath(os.path.join(THIS_DIR, '../pynba/requests.json'))
+DATA_PATH = os.path.abspath(os.path.join(THIS_DIR, '../nbawebstats/requests.json'))
 
 def format_internal_link(name, domain):
     return ":ref:`{0} <{1}-{2}>`".format(name, domain, name.lower())

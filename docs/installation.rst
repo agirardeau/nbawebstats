@@ -6,9 +6,9 @@ Installation
 
 At the command line::
 
-    $ pip install --user pynba
+    $ pip install --user nbawebstats
 
 Or, with virtualenvwrapper installed::
 
-    $ mkvirtualenv pynba
-    $ pip install pynba
+    $ mkvirtualenv nbawebstats
+    $ pip install nbawebstats

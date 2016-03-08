@@ -49,7 +49,7 @@ clean-test:
 	rm -fr htmlcov/
 
 lint:
-	flake8 pynba tests
+	flake8 nbawebstats tests
 
 test:
 	python setup.py test
@@ -58,7 +58,7 @@ test-all:
 	tox
 
 coverage:
-	coverage run --source pynba setup.py test
+	coverage run --source nbawebstats setup.py test
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html

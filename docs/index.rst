@@ -1,4 +1,4 @@
-PyNBA Documentation
+NBAWebStats Documentation
 ===================
 
 Contents:

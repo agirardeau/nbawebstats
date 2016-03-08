@@ -25,5 +25,5 @@ deploy:
   user: agirardeaudale
   on:
     tags: true
-    repo: agirardeaudale/pynba
+    repo: agirardeaudale/nbawebstats
     condition: $TOXENV == py34
