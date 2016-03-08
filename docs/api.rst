@@ -2,7 +2,7 @@
 API Reference
 =============
 
-.. autoclass:: pynba.interface.WebInterface
+.. autoclass:: nbawebstats.interface.WebInterface
     :members:
     :undoc-members:
     :special-members: __init__

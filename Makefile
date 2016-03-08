@@ -25,7 +25,7 @@ help:
 	@echo "dist - package"
 	@echo "install - install the package to the active Python's site-packages"
 
-clean: clean-build clean-pyc clean-test
+clean: clean-build clean-docs clean-pyc clean-test
 
 clean-build:
 	rm -fr build/
@@ -33,6 +33,9 @@ clean-build:
 	rm -fr .eggs/
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
+
+clean-docs:
+	$(MAKE) -C docs clean
 
 clean-pyc:
 	find . -name '*.pyc' -exec rm -f {} +
@@ -46,7 +49,7 @@ clean-test:
 	rm -fr htmlcov/
 
 lint:
-	flake8 pynba tests
+	flake8 nbawebstats tests
 
 test:
 	python setup.py test
@@ -55,7 +58,7 @@ test-all:
 	tox
 
 coverage:
-	coverage run --source pynba setup.py test
+	coverage run --source nbawebstats setup.py test
 	coverage report -m
 	coverage html
 	$(BROWSER) htmlcov/index.html

@@ -4,9 +4,9 @@
 Usage
 =====
 
-Import and construct the :class:`WebInterface` class from ``pynba``::
+Import and construct the :class:`WebInterface` class from ``nbawebstats``::
 
-    from pynba.pynba import WebInterface
+    from nbawebstats.inferface import WebInterface
     w = WebInterface()
 
 Get players in a given season::

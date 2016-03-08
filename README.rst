@@ -2,12 +2,12 @@
 Overview
 ========
 
-PyNBA is a Python interface to the stats.nba.com HTTP API, compatible with
+NBAWebStats is a Python interface to the stats.nba.com HTTP API, compatible with
 Python 2.6-2.7 and 3.3-3.5.
 
-PyNBA was developed from existing packages for the same purpose such as
-`py-goldsberry`__, without which PyNBA would not be possible. Compared to
-py-goldsberry, PyNBA offers the following attributes:
+NBAWebStats was developed from existing packages for the same purpose such as
+`py-goldsberry`__, without which NBAWebStats would not be possible. Compared to
+py-goldsberry, NBAWebStats offers the following attributes:
 
 __ http://github.com/bradleyfay/py-Goldsberry
 
@@ -20,6 +20,6 @@ __ http://github.com/bradleyfay/py-Goldsberry
 Details
 -------
 
-* Source repository: http://github.com/agirardeaudale/pynba
-* Documentation: https://pynba.readthedocs.org.
+* Source repository: http://github.com/agirardeaudale/nbawebstats
+* Documentation: https://nbawebstats.readthedocs.org.
 * Free software: MIT license
