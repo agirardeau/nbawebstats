@@ -30,6 +30,12 @@ project_root = os.path.dirname(cwd)
 # version is used.
 sys.path.insert(0, project_root)
 
+# Update requests.rst based on requests.json. Sdd docs directory to
+# PYTHONPATH to access generator functionality.
+sys.path.insert(0, os.path.join(project_root, 'docs'))
+from generaterequestrst import update_request_rst
+update_request_rst()
+
 import nbawebstats
 
 # -- General configuration ---------------------------------------------

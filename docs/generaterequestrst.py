@@ -6,6 +6,7 @@ import os
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_PATH = os.path.abspath(os.path.join(THIS_DIR, '../nbawebstats/requests.json'))
+RST_PATH = os.path.abspath(os.path.join(THIS_DIR, 'requests.rst'))
 
 def format_internal_link(name, domain):
     return ":ref:`{0} <{1}-{2}>`".format(name, domain, name.lower())
@@ -34,7 +35,7 @@ def format_param_type_link(param_type):
 
     return format_internal_link(param_type_name, 'type')
 
-if __name__ == '__main__':
+def update_request_rst():
     with open(DATA_PATH, 'r') as f:
         data = json.load(f)
 
@@ -48,4 +49,10 @@ if __name__ == '__main__':
     jinja_env.filters['format_param_links'] = format_param_links
     jinja_env.filters['format_param_type_link'] = format_param_type_link
 
-    print(jinja_env.get_template('requests.template').render(data))
+    rst_contents = jinja_env.get_template('requests.template').render(data)
+
+    with open(RST_PATH, 'w') as f:
+        f.write(rst_contents)
+
+if __name__ == '__main__':
+    update_request_rst()
