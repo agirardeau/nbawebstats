@@ -13,14 +13,18 @@ requirements = [
 
 test_requirements = []
 
+version='0.0.3'
+
 setup(
     name='pynba',
-    version='0.0.3',
+    version=version,
     description="Python interface to stats.nba.com HTTP API.",
     long_description=readme,
     author="Andrew Girardeau-Dale",
     author_email='agirardeaudale@gmail.com',
     url='https://github.com/agirardeaudale/pynba',
+    download_url=('https://github.com/agirardeaudale/pynba/tarball/v{0}'
+                  .format(version)),
     packages=[
         'pynba',
     ],
