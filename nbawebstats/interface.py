@@ -5,43 +5,43 @@ import json
 from os import path
 from abc import ABCMeta, abstractmethod
 
-_REQUEST_DATA_PATH = path.join(path.dirname(path.abspath(__file__)),
-                               "requests.json")
+
+__version__ = '0.0.4'
 
 
-class WebInterface:
-    """Class used to construct and send HTTP requests to
-    stats.nba.com."""
+class HTTPResponseError(Exception):
+    """Error indicating that the stats.nba.com server returned an
+    unexpected status code.
+    
+    Attributes:
+        status_code (int): HTTP status code returned by the server.
+    """
+    def __init__(self, status_code):
+        self.status_code = status_code
 
-    def __init__(self):
-        """Class contructor. Takes no arguments. Will load request and
-        parameter metadata."""
-        with open(_REQUEST_DATA_PATH, 'r') as f:
-            request_data = json.load(f)
+    def __repr__(self):
+        return ("Server returned unexpected HTTP status code {}"
+                .format(self.status_code))
 
-        self._param_types = {x: _construct_param_type_from_json(x, y)
-                             for x, y in request_data['params'].items()}
-        self._request_types = {x: _RequestType(x, y, self._param_types)
-                               for x, y in request_data['requests'].items()}
 
-    def request(self, request_name, params={}):
-        """Send an HTTP request to stats.nba.com.
+def request_stats(request_name, params={}):
+    """Send an HTTP request to stats.nba.com.
 
-        Args:
-            request_name (str): Identifier to the request type.
-            params (dict): Dictionary of paramters to the request.
-                Any parameters not provided in this argument will be set
-                to default vaues. Some paramters do not have default
-                values; all of these must be provided. See the
-                documantation for individual request types for which
-                parameters they accept. A parameter may be left unspecified
-                by providing an empty string.
+    Args:
+        request_name (str): Identifier to the request type.
+        params (dict): Dictionary of paramters to the request.
+            Any parameters not provided in this argument will be set
+            to default vaues. Some paramters do not have default
+            values; all of these must be provided. See the
+            documantation for individual request types for which
+            parameters they accept. A parameter may be left unspecified
+            by providing an empty string.
 
-        Returns:
-            dict: Dictionary containing fields specific to the
-                request type.
-        """
-        return self._request_types[request_name].send(params)
+    Returns:
+        dict: Dictionary containing fields specific to the
+            request type.
+    """
+    return _REQUEST_TYPES[request_name].send(params)
 
 
 class _RequestType:
@@ -58,11 +58,14 @@ class _RequestType:
     def send(self, params):
         params_composed = self._compose_params(params)
 
-        url = 'http://stats.nba.com/{0}'.format(self.endpoint)
+        url = 'http://stats.nba.com/{0}?'.format(self.endpoint)
         if self.url_param is not None:
             url = url.format(params_composed[self.url_param])
 
         response = requests.get(url, params=params_composed)
+
+        if not (response.status_code >= 200 and response.status_code <= 399):
+            raise HTTPResponseError(response.status_code)
 
         if self.response_format == 'result-set':
             return self._label_result_sets(response.json()['resultSets'])
@@ -193,17 +196,34 @@ class _DateParamType(_ParamType):
         return str(value)
 
 
-_PARAM_TYPE_NAME_MAP = {
-        'int': _IntParamType,
-        'season': _SeasonParamType,
-        'season-id': _SeasonIDParamType,
-        'boolean-yn': _BooleanYNParamType,
-        'boolean-01': _Boolean01ParamType,
-        'enum': _EnumParamType,
-        'enum-mapped': _MappedEnumParamType,
-        'date': _DateParamType,
-}
-
-
 def _construct_param_type_from_json(name, data):
-    return _PARAM_TYPE_NAME_MAP[data['type']](name, data)
+    param_type_map = {
+            'int': _IntParamType,
+            'season': _SeasonParamType,
+            'season-id': _SeasonIDParamType,
+            'boolean-yn': _BooleanYNParamType,
+            'boolean-01': _Boolean01ParamType,
+            'enum': _EnumParamType,
+            'enum-mapped': _MappedEnumParamType,
+            'date': _DateParamType,
+    }
+
+    return param_type_map[data['type']](name, data)
+
+
+def _load_request_metadata():
+    request_data_path = path.join(path.dirname(path.abspath(__file__)),
+                                  "requests.json")
+
+    with open(request_data_path, 'r') as f:
+        request_data = json.load(f)
+
+    param_types = {x: _construct_param_type_from_json(x, y)
+                   for x, y in request_data['params'].items()}
+    request_types = {x: _RequestType(x, y, param_types)
+                     for x, y in request_data['requests'].items()}
+
+    return request_types
+
+
+_REQUEST_TYPES = _load_request_metadata()
