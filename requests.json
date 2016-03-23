@@ -1219,8 +1219,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-transition" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_Transition.js",
@@ -1228,8 +1227,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-player-isolation" : {
             "description" : "",
             "endpoint" : "js/data/playtype/player_Isolation.js",
@@ -1237,8 +1235,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-isolation" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_Isolation.js",
@@ -1246,8 +1243,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-player-pr-ball-handler" : {
             "description" : "",
             "endpoint" : "js/data/playtype/player_PRBallHandler.js",
@@ -1255,8 +1251,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-pr-ball-handler" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_PRBallHandler.js",
@@ -1264,8 +1259,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-player-pr-roll-man" : {
             "description" : "",
             "endpoint" : "js/data/playtype/player_PRRollMan.js",
@@ -1273,8 +1267,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-pr-roll-man" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_PRRollMan.js",
@@ -1282,8 +1275,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-player-postup" : {
             "description" : "",
             "endpoint" : "js/data/playtype/player_Postup.js",
@@ -1291,8 +1283,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-postup" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_Postup.js",
@@ -1300,8 +1291,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-player-spotup" : {
             "description" : "",
             "endpoint" : "js/data/playtype/player_Postup.js",
@@ -1309,8 +1299,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-spotup" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_Postup.js",
@@ -1318,8 +1307,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-player-handoff" : {
             "description" : "",
             "endpoint" : "js/data/playtype/player_Handoff.js",
@@ -1327,8 +1315,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-handoff" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_Handoff.js",
@@ -1336,8 +1323,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-player-cut" : {
             "description" : "",
             "endpoint" : "js/data/playtype/player_Cut.js",
@@ -1345,8 +1331,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-cut" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_Cut.js",
@@ -1354,8 +1339,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-player-offscreen" : {
             "description" : "",
             "endpoint" : "js/data/playtype/player_OffScreen.js",
@@ -1363,8 +1347,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-offscreen" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_OffScreen.js",
@@ -1372,8 +1355,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-player-offrebound" : {
             "description" : "",
             "endpoint" : "js/data/playtype/player_OffRebound.js",
@@ -1381,8 +1363,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-offrebound" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_OffRebound.js",
@@ -1390,8 +1371,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-player-misc" : {
             "description" : "",
             "endpoint" : "js/data/playtype/player_Misc.js",
@@ -1399,8 +1379,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "playtype-team-misc" : {
             "description" : "",
             "endpoint" : "js/data/playtype/team_Misc.js",
@@ -1408,8 +1387,7 @@
             "response-format" : "result-set",
             "returns" : [
                 "offensive",
-                "defensive",
-                "season" ]},
+                "defensive" ]},
         "sportvu-catch-and-shoot" : {
             "description" : "",
             "endpoint" : "js/data/playtype/sportvu/{0}/catchShootData.js",
