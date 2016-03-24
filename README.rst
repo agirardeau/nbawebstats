@@ -16,9 +16,9 @@ py-goldsberry, NBAWebStats offers the following attributes:
   ~200 line python file vs 10 files totalling ~2350 lines).
 * Centralized documentation of permitted request types and parameters online_.
 * Descriptive package name.
-* Supports Python 3, but does not support Python 2.
+* Support for Python 3 (but not for Python 2).
 
-.. _online: http://nbawebstats.readthedocs.org/en/latest/requests.html
+.. _online: http://nbawebstats.readthedocs.org/en/master/requests.html
 
 Details
 -------
