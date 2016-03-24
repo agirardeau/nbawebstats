@@ -25,11 +25,9 @@ setup(
     url='https://github.com/agirardeaudale/nbawebstats',
     download_url=('https://github.com/agirardeaudale/nbawebstats/tarball/v{0}'
                   .format(version)),
-    packages=[
-        'nbawebstats',
+    py_modules=[
+        'nbawebstats.py'
     ],
-    package_dir={'nbawebstats':
-                 'nbawebstats'},
     include_package_data=True,
     install_requires=requirements,
     license="MIT",

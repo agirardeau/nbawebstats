@@ -1,7 +1,7 @@
 include LICENSE
 include README.rst
 
-include nbawebstats/requests.json
+include requests.json
 
 recursive-include tests *
 recursive-exclude * __pycache__

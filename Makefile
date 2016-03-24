@@ -47,6 +47,8 @@ clean-test:
 	rm -fr .tox/
 	rm -f .coverage
 	rm -fr htmlcov/
+	rm test-results.pickle
+	rm response-cache.sqlite
 
 lint:
 	flake8 nbawebstats tests
