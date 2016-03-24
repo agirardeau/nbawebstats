@@ -1,4 +1,11 @@
 #!/usr/bin/env python
+"""
+Functional test for nbawebstats. Tests whether each command is
+is constructed suitably to garner a valid response from the
+stats.nba.com server. Since it's success in dependent upon an outside
+entity and a valid internet connection to function, it is not covered by
+the unit tests and run as a part of continuous integration.
+"""
 
 import sys
 import nbawebstats
