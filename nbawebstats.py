@@ -231,7 +231,7 @@ def _construct_param_type_from_json(name, data):
 
 def _load_request_metadata():
     request_data_path = path.join(path.dirname(path.abspath(__file__)),
-                                  "requests.json")
+                                  "nbawebstats/requests.json")
 
     with open(request_data_path, 'r') as f:
         request_data = json.load(f)

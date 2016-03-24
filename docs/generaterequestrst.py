@@ -5,7 +5,7 @@ import json
 import os
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
-DATA_PATH = os.path.abspath(os.path.join(THIS_DIR, '../requests.json'))
+DATA_PATH = os.path.abspath(os.path.join(THIS_DIR, '../nbawebstats/requests.json'))
 RST_PATH = os.path.abspath(os.path.join(THIS_DIR, 'requests.rst'))
 
 def format_internal_link(name, domain):

@@ -1,6 +1,6 @@
 include LICENSE
 include README.rst
-include requests.json
+include nbawebstats/requests.json
 
 recursive-include tests *
 recursive-include docs *.rst conf.py generaterequestrst.py Makefile
