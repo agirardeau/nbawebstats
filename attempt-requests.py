@@ -10,11 +10,11 @@ requests_cache.install_cache('response-cache')
 
 def get_default_value(param_name):
     if param_name == 'TeamID':
-        return '1610612764' # 2015-16 Sacramento Kings
+        return '1610612764'  # 2015-16 Sacramento Kings
     elif param_name == 'PlayerID':
-        return '202326' # DeMarcus Cousins
+        return '202326'  # DeMarcus Cousins
     elif param_name == 'GameID':
-        return '0021500391' # Detroit @ Chicago, 2015-12-18
+        return '0021500391'  # Detroit @ Chicago, 2015-12-18
     elif param_name in ['Season', 'SeasonID', 'SeasonYear', 'Year']:
         return 2015
     elif param_name == 'StatCategory':
@@ -33,7 +33,7 @@ def attempt(request_name):
 
     result = {}
     try:
-        response = nbawebstats.request_stats(request_name, params)
+        nbawebstats.request_stats(request_name, params)
         result['outcome'] = 'Success'
     except nbawebstats.HTTPResponseError as e:
         result['outcome'] = 'Failure - {0} {1}'.format(type(e).__name__, e)

@@ -21,10 +21,11 @@ _HTTP_HEADERS = {
     'Connection': 'keep-alive',
 }
 
+
 class HTTPResponseError(Exception):
     """Error indicating that the stats.nba.com server returned an
     unexpected status code.
-    
+
     Attributes:
         server_response (requests.models.Response): Response given by
             the server. May contain useful information about the reason
