@@ -7,21 +7,35 @@ from abc import ABCMeta, abstractmethod
 
 
 __version__ = '0.0.4'
-
+_HTTP_HEADERS = {
+    'Accept-Encoding': 'gzip, deflate, sdch',
+    'Accept-Language': 'en-US,en;q=0.8',
+    'Upgrade-Insecure-Requests': '1',
+    'User-Agent': ('Mozilla/5.0 (Windows NT 10.0; WOW64) '
+                   'AppleWebKit/537.36 (KHTML, like Gecko) '
+                   'Chrome/48.0.2564.82 '
+                   'Safari/537.36'),
+    'Accept': ('text/html,application/xhtml+xml,application/xml;q=0.9,'
+               'image/webp,*/*;q=0.8'),
+    'Cache-Control': 'max-age=0',
+    'Connection': 'keep-alive',
+}
 
 class HTTPResponseError(Exception):
     """Error indicating that the stats.nba.com server returned an
     unexpected status code.
     
     Attributes:
-        status_code (int): HTTP status code returned by the server.
+        server_response (requests.models.Response): Response given by
+            the server. May contain useful information about the reason
+            for the failure.
     """
-    def __init__(self, status_code):
-        self.status_code = status_code
+    def __init__(self, server_response):
+        self.server_response = server_response
 
     def __repr__(self):
         return ("Server returned unexpected HTTP status code {}"
-                .format(self.status_code))
+                .format(self.server_response.status_code))
 
 
 def request_stats(request_name, params={}):
@@ -60,12 +74,14 @@ class _RequestType:
 
         url = 'http://stats.nba.com/{0}?'.format(self.endpoint)
         if self.url_param is not None:
-            url = url.format(params_composed[self.url_param])
+            url = url.format(params_composed.pop(self.url_param))
 
-        response = requests.get(url, params=params_composed)
+        response = requests.get(url,
+                                params=params_composed,
+                                headers=_HTTP_HEADERS)
 
         if not (response.status_code >= 200 and response.status_code <= 399):
-            raise HTTPResponseError(response.status_code)
+            raise HTTPResponseError(response)
 
         if self.response_format == 'result-set':
             return self._label_result_sets(response.json()['resultSets'])
