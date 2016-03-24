@@ -3,7 +3,7 @@ Overview
 ========
 
 NBAWebStats is a Python interface to the stats.nba.com HTTP API, compatible with
-Python 2.6-2.7 and 3.3-3.5.
+Python 3.3-3.5.
 
 NBAWebStats was developed from existing packages for the same purpose such as
 py-goldsberry_, without which NBAWebStats would not be possible. Compared to
@@ -16,6 +16,7 @@ py-goldsberry, NBAWebStats offers the following attributes:
   ~200 line python file vs 10 files totalling ~2350 lines).
 * Centralized documentation of permitted request types and parameters online_.
 * Descriptive package name.
+* Supports Python 3, but does not support Python 2.
 
 .. _online: http://nbawebstats.readthedocs.org/en/latest/requests.html
 
