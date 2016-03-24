@@ -167,7 +167,7 @@ class _BooleanParamType(_ParamType):
 
 class _BooleanYNParamType(_BooleanParamType):
     def format_value(self, value):
-        return 'y' if value else 'n'
+        return 'Y' if value else 'N'
 
 
 class _Boolean01ParamType(_BooleanParamType):
