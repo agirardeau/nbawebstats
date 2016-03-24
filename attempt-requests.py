@@ -48,6 +48,9 @@ if __name__ == '__main__':
     requests_to_try = sys.argv[1:]
     if not requests_to_try:
         requests_to_try = sorted(list(nbawebstats._REQUEST_TYPES.keys()))
+        requests_to_try = sorted([x for x in nbawebstats._REQUEST_TYPES.keys()
+                                  if nbawebstats._REQUEST_TYPES[x].status
+                                  not in ['restricted', 'deprecated']])
 
     results = {}
     for request_name in sorted(requests_to_try):

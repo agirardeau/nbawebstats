@@ -68,6 +68,7 @@ class _RequestType:
         if self.response_format == 'result-set':
             self.outputs = data['returns']
         self.url_param = data.get('url-param')
+        self.status = data.get('status', 'supported')
 
     def send(self, params):
         params_composed = self._compose_params(params)
