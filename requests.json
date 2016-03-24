@@ -1073,7 +1073,7 @@
                 "eastern-conf-remaining-games",
                 "western-conf-remaining-games" ]},
         "league-leaders" : {
-            "description" : "",
+            "description" : ".. warning:: This request cannot be executed due to issues with the current implementation of NBAWebStats. These issues will likely be addressed by upcoming versions of NBAWebStats at which point the request will become available.",
             "endpoint" : "stats/leagueleaders",
             "params" : [
                 "LeagueID",
@@ -1117,7 +1117,7 @@
             "returns" : [
                 "stats" ]},
         "league-clutch-stats" : {
-            "description" : "",
+            "description" : ".. warning:: This request cannot be executed due to issues with the current implementation of NBAWebStats. These issues will likely be addressed by upcoming versions of NBAWebStats at which point the request will become available.",
             "endpoint" : "stats/leaguedashteamclutch",
             "params" : [
                 "AheadBehind",
@@ -1182,7 +1182,7 @@
             "returns" : [
                 "lineups" ]},
         "league-team-shot-locations" : {
-            "description" : "",
+            "description" : ".. warning:: This request cannot be executed due to issues with the current implementation of NBAWebStats. These issues will likely be addressed by upcoming versions of NBAWebStats at which point the request will become available.",
             "endpoint" : "stats/leaguedashteamshotlocations",
             "params" : [
                 "DateFrom",
