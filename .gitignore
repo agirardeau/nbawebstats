@@ -1,3 +1,7 @@
+# Test artifacts
+response-cache.sqlite
+test-results.pickle
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
