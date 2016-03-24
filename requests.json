@@ -771,10 +771,7 @@
             "returns" : [
                 "overall",
                 "on-court",
-                "off-court",
-                "overall-summary",
-                "on-court-summary",
-                "off-court-summary" ]},
+                "off-court" ]},
         "team-game-logs" : {
             "description" : "",
             "endpoint" : "stats/teamgamelog",
