@@ -11,6 +11,12 @@ Requests
 
 {{ request_name }}
 -------------------------------
+{% if request.status == 'deprecated' %}
+.. warning:: This request has been deprecated by nba.com.
+{% endif %}
+{% if request.status == 'restricted' %}
+.. warning:: This request has been restricted by nba.com.
+{% endif %}
 {% if 'description' in request -%}
     {{ request.description }}
 {% endif %}
