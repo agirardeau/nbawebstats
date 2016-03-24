@@ -121,7 +121,7 @@ class _ParamType(metaclass=ABCMeta):
         self.default_string = data.get('default')
         self.has_default = (self.default_string is not None)
         if self.has_default:
-            if self.default_string:
+            if self.default_string != '':
                 self.default_value = self._parse(self.default_string)
                 self.default_formatted = self.format_value(self.default_value)
             else:
