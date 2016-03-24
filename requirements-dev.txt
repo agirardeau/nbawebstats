@@ -9,4 +9,4 @@ PyYAML==3.11
 sphinx_rtd_theme==0.1.9
 requests==2.9.1
 twine==1.6.5
-requests_cache>=1.1.9
+requests_cache>=0.4.12
