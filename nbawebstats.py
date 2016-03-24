@@ -6,7 +6,7 @@ from os import path
 from abc import ABCMeta, abstractmethod
 
 
-__version__ = '0.1.0'
+__version__ = '0.1.1'
 _HTTP_HEADERS = {
     'Accept-Encoding': 'gzip, deflate, sdch',
     'Accept-Language': 'en-US,en;q=0.8',
