@@ -53,6 +53,13 @@
             "description" : "",
             "type" : "date",
             "default" : "" },
+        "Direction" : {
+            "description" : "Sort ascending or descending.",
+            "type" : "enum",
+            "options" : [
+                "ASC",
+                "DESC" ],
+            "default" : "DESC"},
         "DistanceRange" : {
             "description" : "",
             "type" : "enum",
@@ -183,6 +190,14 @@
         "PlayerID" : {
             "description" : "",
             "type" : "int" },
+        "PlayerOrTeam" : {
+            "description" : "",
+            "type" : "enum",
+            "options" : [
+                "",
+                "P",
+                "T" ],
+            "default" : "T" },
         "PlayerPosition" : {
             "description" : "",
             "type" : "enum",
@@ -260,6 +275,30 @@
         "SeasonYear" : {
             "description" : "Same as :ref:`Season <param-season>`.",
             "type" : "season" },
+        "Sorter" : {
+            "description" : "",
+            "type" : "enum",
+            "options" : [
+                "MIN",
+                "FGM",
+                "FGA",
+                "FG_PCT",
+                "FG3M",
+                "FG3A",
+                "FF3_PCT",
+                "FTM",
+                "FTA",
+                "FT_PCT",
+                "OREB",
+                "DREB",
+                "REB",
+                "AST",
+                "STL",
+                "BLK",
+                "TOV",
+                "PTS",
+                "EFF" ],
+            "default" : "PTS"},
         "StartPeriod" : {
             "description" : "",
             "type" : "int",
@@ -298,7 +337,8 @@
                 "BLK",
                 "TOV",
                 "PTS",
-                "EFF" ]},
+                "EFF" ],
+            "default" : "PTS"},
         "TeamID" : {
             "description" : "",
             "type" : "int" },
@@ -1112,7 +1152,7 @@
             "params" : [
                 "DateFrom",
                 "DateTo",
-                "GameID",
+                "Direction",
                 "GameSegment",
                 "GroupQuantity",
                 "LastNGames",
@@ -1125,11 +1165,13 @@
                 "PaceAdjust",
                 "PerMode",
                 "Period",
+                "PlayerOrTeam",
                 "PlusMinus",
                 "Rank",
                 "Season",
                 "SeasonSegment",
                 "SeasonType",
+                "Sorter",
                 "VsConference",
                 "VsDivision" ],
             "response-format" : "result-set",
