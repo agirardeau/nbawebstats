@@ -39,7 +39,7 @@ class HTTPResponseError(Exception):
                 .format(self.server_response.status_code))
 
 
-def request_stats(request_name, params={}):
+def request_stats(request_name, params={}, **kwargs):
     """Send an HTTP request to stats.nba.com.
 
     Args:
@@ -51,12 +51,14 @@ def request_stats(request_name, params={}):
             documantation for individual request types for which
             parameters they accept. A parameter may be left unspecified
             by providing an empty string.
+        kwargs: Any additional keyword arguments that would be accepted
+            by requests.get().
 
     Returns:
         dict: Dictionary containing fields specific to the
             request type.
     """
-    return _REQUEST_TYPES[request_name].send(params)
+    return _REQUEST_TYPES[request_name].send(params, **kwargs)
 
 
 class _RequestType:
@@ -71,7 +73,7 @@ class _RequestType:
         self.url_param = data.get('url-param')
         self.status = data.get('status', 'supported')
 
-    def send(self, params):
+    def send(self, params, **kwargs):
         params_composed = self._compose_params(params)
 
         url = 'http://stats.nba.com/{0}?'.format(self.endpoint)
@@ -80,7 +82,8 @@ class _RequestType:
 
         response = requests.get(url,
                                 params=params_composed,
-                                headers=_HTTP_HEADERS)
+                                headers=_HTTP_HEADERS,
+                                **kwargs)
 
         if not (response.status_code >= 200 and response.status_code <= 399):
             raise HTTPResponseError(response)

@@ -40,11 +40,13 @@ def attempt(request_name):
 
     result = {}
     try:
-        nbawebstats.request_stats(request_name, params)
+        result['response'] = nbawebstats.request_stats(request_name,
+                                                       params,
+                                                       timeout=5)
         result['outcome'] = 'Success'
     except nbawebstats.HTTPResponseError as e:
-        result['outcome'] = 'Failure - {0} {1}'.format(type(e).__name__, e)
         result['response'] = e.server_response
+        result['outcome'] = 'Failure - {0} {1}'.format(type(e).__name__, e)
     except Exception as e:
         result['outcome'] = 'Failure - {0} {1}'.format(type(e).__name__, e)
 
