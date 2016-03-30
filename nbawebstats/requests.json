@@ -379,6 +379,19 @@
             "response-format" : "result-set",
             "returns" : [
                 "list" ]},
+        "all-games" : {
+            "description" : "",
+            "endpoint" : "stats/leaguegamelog",
+            "params" : [
+                "LeagueID",
+                "Season",
+                "PlayerOrTeam",
+                "Direction",
+                "SeasonType",
+                "Sorter" ],
+            "response-format" : "result-set",
+            "returns" : [
+                "list" ]},
         "player-demographics" : {
             "description" : "",
             "endpoint" : "stats/commonplayerinfo",
