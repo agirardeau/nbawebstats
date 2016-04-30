@@ -829,7 +829,12 @@
                 "VsDivision" ],
             "response-format" : "result-set",
             "returns" : [
-                ["clutch", []]]},
+                ["clutch",
+                    ["TEAM_NAME", "TEAM_ID", "TOV", "FTA", "FGM", "FG3_PCT",
+                    "BLK", "CFID", "W", "BLKA", "AST", "PF", "STL", "GP",
+                    "DREB", "PTS", "OREB", "W_PCT", "FG3A", "FTM", "FGA",
+                    "FG3M", "PFD", "PLUS_MINUS", "REB", "FT_PCT", "L",
+                    "FG_PCT", "MIN", "CFPARAMS"]]]},
         "league-daily-scoreboard" : {
             "description" : "",
             "status" : "restricted",
@@ -876,7 +881,11 @@
                 "StatCategory" ],
             "response-format" : "result-set",
             "returns" : [
-                ["leaders", []]]},
+                ["leaders",
+                    ["EFF", "STL_TOV", "BLK", "STL", "FTA", "FGM", "FG3_PCT",
+                    "TEAM", "PF", "PLAYER_ID", "AST", "RANK", "TOV", "GP",
+                    "DREB", "PTS", "OREB", "FG3A", "FTM", "FGA", "FG3M", "REB",
+                    "FT_PCT", "AST_TOV", "FG_PCT", "MIN", "PLAYER"]]]},
         "league-lineups" : {
             "description" : "",
             "endpoint" : "stats/leaguedashlineups",
