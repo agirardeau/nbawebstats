@@ -31,7 +31,7 @@ Optional Parameters:
 Return Fields:
 {% for field in request.returns %}
   ``'{{ field[0] }}'``
-    {{ field[1]|format_string_literals|join(", ") }}
+    {{ field[1]|sort|format_string_literals|join(", ") }}
 
 {% endfor %}
 {% endif %}
