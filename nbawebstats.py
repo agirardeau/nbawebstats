@@ -90,7 +90,12 @@ class _RequestType:
             raise HTTPResponseError(response)
 
         if self.response_format == 'result-set':
-            return self._label_result_sets(response.json()['resultSets'])
+            if 'resultSets' in response.json().keys():
+                return self._label_result_sets(response.json()['resultSets'])
+            else:
+                # The response from the league-leaders request has a typo. This
+                # accounts for that.
+                return self._label_result_sets(response.json()['resultSet'])
         else:
             return response.json()
 
@@ -112,12 +117,20 @@ class _RequestType:
 
     def _label_result_sets(self, result_set_list):
         results = OrderedDict()
-        for output, index in zip(self.outputs, range(len(self.outputs))):
-            headers = result_set_list[index]['headers']
-            values = result_set_list[index]['rowSet']
-            results[output] = [dict(zip(headers, x)) for x in values]
+        if isinstance(result_set_list, list):
+            for output, index in zip(self.outputs, range(len(self.outputs))):
+                results[output] = \
+                        self._extract_result_set(result_set_list[index])
+        else:
+            results[self.outputs[0]] = \
+                    self._extract_result_set(result_set_list)
 
         return results
+
+    def _extract_result_set(self, result_set):
+            headers = result_set['headers']
+            values = result_set['rowSet']
+            return [dict(zip(headers, x)) for x in values]
 
 
 class _ParamType(metaclass=ABCMeta):
