@@ -4,6 +4,7 @@ import requests
 import json
 from os import path
 from abc import ABCMeta, abstractmethod
+from collections import OrderedDict
 
 
 __version__ = '0.1.1'
@@ -69,7 +70,7 @@ class _RequestType:
         self.params = [param_types[x] for x in data['params']]
         self.response_format = data['response-format']
         if self.response_format == 'result-set':
-            self.outputs = data['returns']
+            self.outputs = [x[0] for x in data['returns']]
         self.url_param = data.get('url-param')
         self.status = data.get('status', 'supported')
 
@@ -110,7 +111,7 @@ class _RequestType:
         return params_composed
 
     def _label_result_sets(self, result_set_list):
-        results = {}
+        results = OrderedDict()
         for output, index in zip(self.outputs, range(len(self.outputs))):
             headers = result_set_list[index]['headers']
             values = result_set_list[index]['rowSet']

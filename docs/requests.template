@@ -21,12 +21,19 @@ Requests
     {{ request.description }}
 {% endif %}
 
-:Required Parameters: {{ request.params|without_default(params)|sort|format_param_links|join(", ") }}
+Required Parameters:
+  {{ request.params|without_default(params)|sort|format_param_links|join(", ") }}
 
-:Optional Parameters: {{ request.params|with_default(params)|sort|format_param_links|join(", ") }}
+Optional Parameters:
+  {{ request.params|with_default(params)|sort|format_param_links|join(", ") }}
 
 {% if request['response-format'] == 'result-set' %}
-:Return Fields: {{ request.returns|format_string_literals|join(", ") }}
+Return Fields:
+{% for field in request.returns %}
+  ``'{{ field[0] }}'``
+    {{ field[1]|format_string_literals|join(", ") }}
+
+{% endfor %}
 {% endif %}
     
 {% endfor %}
@@ -44,14 +51,17 @@ Parameters
     {{ param.description }}
 {% endif %}
 
-:Type: {{ param.type|format_param_type_link }}
+Type:
+  {{ param.type|format_param_type_link }}
 
 {% if param.type in ['enum', 'enum-mapped'] %}
-:Options: {{ param.options|format_string_literals|join(", ") }}
+Options:
+  {{ param.options|format_string_literals|join(", ") }}
 
 {% endif %}
 {% if 'default' in param %}
-:Default: {% if param.default %}``{{ param.default }}``{% else %}``''``{% endif %}
+Default:
+  {% if param.default %}``{{ param.default }}``{% else %}``''``{% endif %}
 
 {% endif %}
 {% endfor %}
