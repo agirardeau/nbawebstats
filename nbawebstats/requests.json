@@ -9,7 +9,7 @@
                 "Ahead or Tied" ],
             "default" : "Ahead or Behind" },
         "ClutchTime" : {
-            "description" : "",
+            "description" : "Required by league-clutch-stats, but not player-shot-chart.",
             "type" : "enum",
             "options" : [
                 "",
@@ -64,11 +64,10 @@
             "description" : "",
             "type" : "enum",
             "options" : [
-                "",
                 "5ft Range",
                 "8ft Range",
                 "By Zone" ],
-            "default" : ""},
+            "default" : "5ft Range"},
         "EndPeriod" : {
             "description" : "",
             "type" : "int",
@@ -218,7 +217,7 @@
         "PointDiff" : {
             "description" : "",
             "type" : "int",
-            "default" : "" },
+            "default" : 0 },
         "Position" : {
             "description" : "",
             "type" : "enum",
@@ -244,11 +243,10 @@
             "description" : "",
             "type" : "enum",
             "options" : [
-                "",
                 "RS",
                 "S",
                 "Rookies" ],
-            "default" : ""},
+            "default" : "RS"},
         "Season" : {
             "description" : "",
             "type" : "season" },
@@ -799,7 +797,7 @@
                     "TEAM_ID", "PLUS_MINUS", "OREB", "MIN", "W_PCT", "FG_PCT",
                     "REB", "FGM"]]]},
         "league-clutch-stats" : {
-            "description" : ".. warning:: This request cannot be executed due to issues with the current implementation of NBAWebStats. These issues will likely be addressed by upcoming versions of NBAWebStats at which point the request will become available.",
+            "description" : "",
             "endpoint" : "stats/leaguedashteamclutch",
             "params" : [
                 "AheadBehind",
@@ -867,7 +865,7 @@
                      "DIV_TITLES", "START_YEAR", "TEAM_CITY",
                      "TEAM_ID", "LEAGUE_TITLES", "END_YEAR", "LEAGUE_ID"]]]},
         "league-leaders" : {
-            "description" : ".. warning:: This request cannot be executed due to issues with the current implementation of NBAWebStats. These issues will likely be addressed by upcoming versions of NBAWebStats at which point the request will become available.",
+            "description" : "",
             "endpoint" : "stats/leagueleaders",
             "params" : [
                 "LeagueID",
@@ -963,7 +961,7 @@
                      ["TEAM", "REMAINING_G", "TEAM_ID", "REMAINING_HOME_G",
                      "REMAINING_AWAY_G"]]]},
         "league-team-shot-locations" : {
-            "description" : ".. warning:: This request cannot be executed due to issues with the current implementation of NBAWebStats. These issues will likely be addressed by upcoming versions of NBAWebStats at which point the request will become available.",
+            "description" : ".. warning:: This request is not currently supported by ``nbawebstats`` because of its nonstandard response format.",
             "endpoint" : "stats/leaguedashteamshotlocations",
             "params" : [
                 "DateFrom",

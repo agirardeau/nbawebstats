@@ -73,6 +73,8 @@ def get_default_value(param_name):
         return 2015
     elif param_name == 'StatCategory':
         return 'MIN'
+    elif param_name == 'ClutchTime':
+        return 'Last 5 Minutes'
     else:
         raise ValueError()
 
@@ -82,7 +84,7 @@ def attempt(request_name, request_data, verbose=False):
 
     params = {}
     for param_type in request_type.params:
-        if not param_type.has_default:
+        if not param_type.has_default or param_type.name == 'ClutchTime':
             params[param_type.name] = get_default_value(param_type.name)
 
     result = {}
